@@ -8,6 +8,4 @@ for i in range(N):
     I = int(l[i][0])
     C_l[I].append(l[i])
 
-for bucket in C_l:
-    for person in bucket:
-        print(person[0], person[1])
+[print(*p) for bucket in C_l for p in bucket]
