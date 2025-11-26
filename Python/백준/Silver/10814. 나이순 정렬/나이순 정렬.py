@@ -1,3 +1,8 @@
+import sys
+
+input = sys.stdin.readline
+
+
 N = int(input())
 
 l = [list(input().split()) for _ in range(N)]
