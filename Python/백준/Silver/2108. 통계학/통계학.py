@@ -12,7 +12,8 @@ for _ in range(N):
 
 temp.sort()
 
-print(int(round(sum(temp)/N)))
+avg = sum(temp) / N
+print(int(avg + 0.5) if avg >= 0 else int(avg - 0.5))
 print(temp[N//2])
 
 max_num = max(check_num)
