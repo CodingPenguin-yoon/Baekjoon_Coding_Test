@@ -12,8 +12,12 @@ for i in range(4, 12):
 
 for _ in range(N):
     M = int(input())
-
-    for i in range(4,12):
-        dp[i] = dp[i-1] + dp[i-2] + dp[i-3]
-
     print(dp[M])
+
+
+
+
+
+
+
+
