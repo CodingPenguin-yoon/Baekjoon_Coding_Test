@@ -1,3 +1,3 @@
-temp = input()
+n = input()
 
-print("%d" % ord(temp))
+print(ord(n))
