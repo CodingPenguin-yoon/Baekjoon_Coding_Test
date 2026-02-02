@@ -1,15 +1,16 @@
-num_sum = int(input())
+N = int(input())
+T_list = list(map(int, input().split()))
+T, P = map(int, input().split())
+remain = 0
+share = 0
+sum = 0
+for i in range(len(T_list)):
+    remain = T_list[i] % T
+    share = T_list[i] // T
+    if remain == 0:
+        sum += share
+    else:
+        sum += share+1
 
-size = list(map(int,input().split()))
-
-T,P = map(int,input().split())
-
-ans_T,ans_P1,ans_P2 = 0,0,0
-
-for i in range(len(size)):
-    ans_T = ans_T + ((size[i]-1)//T + 1)
-
-print(ans_T)
-ans_P1 = num_sum // P
-ans_P2 = num_sum % P
-print(ans_P1,ans_P2)
+print(sum)
+print(N//P,N%P)
