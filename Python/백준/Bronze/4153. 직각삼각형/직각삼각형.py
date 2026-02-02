@@ -1,12 +1,10 @@
-while True:
-    S1 = list(map(int, input().split()))
-    if S1[0] == 0 and S1[1] == 0 and S1[2] == 0:
+while 1:
+    num_list = list(map(int,input().split()))
+    num_list.sort()
+    if num_list[2] == 0:
         break
-    S2 = []
-    for i in S1:
-        S2.append(i ** 2)
-    S2.sort()
-    if S2[0] + S2[1] == S2[2]:
+    if num_list[2]**2 == num_list[0]**2 + num_list[1]**2:
         print("right")
     else:
         print("wrong")
+    
