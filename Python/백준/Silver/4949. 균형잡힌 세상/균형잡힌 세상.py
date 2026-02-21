@@ -1,31 +1,45 @@
-while True:
+
+while 1:
     ans = []
-    n = input()
-    if n == '.':
+    word = input()
+    flag = False
+
+    if word == ".":
         break
-    for i in range(len(n)):
-        if n[i] == '(':
-            ans.append('(')
-        if n[i] == ')':
-            if len(ans) == 0:
-                print("no")
+
+    for i in word:
+        if i == '(':
+            ans.append(i)
+        elif i == '[':
+            ans.append(i)
+        elif i == ')':
+            if ans:
+                buf = ans.pop()
+            else:
+                flag = True
                 break
-            C_A = ans.pop()
-            if C_A !='(':
-                print("no")
+
+            if buf == '(':
+                continue
+            else:
+                flag = True
                 break
-        if n[i] == '[':
-            ans.append('[')
-        if n[i] == ']':
-            if len(ans) == 0:
-                print("no")
+        elif i == ']':
+            if ans:
+                buf = ans.pop()
+            else:
+                flag = True
                 break
-            C_A = ans.pop()
-            if C_A != '[':
-                print("no")
+
+            if buf == '[':
+                continue
+            else:
+                flag = True
                 break
+    if flag:
+        print("no")
+        continue
+    if ans:
+        print("no")
     else:
-        if len(ans) == 0:
-            print("yes")
-        else:
-            print("no")
+        print("yes")
