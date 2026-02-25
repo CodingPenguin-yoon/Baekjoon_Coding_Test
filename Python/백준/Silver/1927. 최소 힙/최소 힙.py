@@ -1,24 +1,17 @@
 import sys
-from collections import deque
-import heapq
-
+import heapq # 1. heapq 모듈 임포트
 input = sys.stdin.readline
 
-N = int(input())
+N = int(input().strip())
 
-num_list = []
-
+N_array = []
 
 for _ in range(N):
-    num = int(input())
-    if num == 0:
-
-        if len(num_list) == 0:
+    X = int(input().strip())
+    if not X:
+        if not N_array:
             print(0)
         else:
-            print(heapq.heappop(num_list))
-
+            print(heapq.heappop(N_array))
     else:
-        heapq.heappush(num_list,num)
-
-
+        heapq.heappush(N_array, X)
