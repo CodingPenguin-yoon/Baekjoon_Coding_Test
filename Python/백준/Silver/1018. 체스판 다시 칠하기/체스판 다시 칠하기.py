@@ -1,44 +1,31 @@
-"""
-i + m , j + n < 50
+N, M = map(int,input().split())
 
-50^2*64 = 125, 000
+chess = [input() for _ in range(N)]
+cnt_B = 0
+cnt_W = 0
 
-"""
-m, n = map(int,input().split())
+ans = []
+for i in range(N-7):
+    for j in range(M-7):
 
+        cnt_B = 0
+        cnt_W = 0
 
-N_map = n - 7
+        for k in range(i,i+8):
+            for l in range(j,j+8):
 
-M_map = m - 7
-
-C_B = 0
-C_W = 0
-
-
-A_array = [input() for _ in range(m)]
-
-A_ans = []
-
-for i in range(0,M_map):
-    for j in range(0,N_map):
-        for m in range(8):
-            for n in range(8):
-                N_M = m + n
-
-                if N_M % 2 == 0:
-                    if A_array[m+i][n+j] != 'B':
-                        C_B += 1
-                    if A_array[m + i][n+j] != 'W':
-                        C_W += 1
+                if (k+l) % 2 == 0:
+                    if chess[k][l] != 'B':
+                        cnt_B += 1
+                    if chess[k][l] != 'W':
+                        cnt_W += 1
                 else:
-                    if A_array[m + i][n+j] != 'W':
-                        C_B += 1
-                    if A_array[m + i][n + j] != 'B':
-                        C_W += 1
+                    if chess[k][l] != 'W':
+                        cnt_B += 1
+                    if chess[k][l] != 'B':
+                        cnt_W += 1
 
-        A_ans.append(min(C_W,C_B))
-        C_W, C_B = 0,0
+        ans.append(cnt_B)
+        ans.append(cnt_W)
 
-
-
-print(min(A_ans))
+print(min(ans))
