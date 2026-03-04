@@ -1,6 +1,6 @@
--- 코드를 입력하세요
-SELECT a.ANIMAL_ID, a.NAME 
+select a.ANIMAL_ID, b.NAME
 from ANIMAL_INS as a
-left join ANIMAL_OUTS as b on a.ANIMAL_ID = b.ANIMAL_ID
+join ANIMAL_OUTS as b
+on a.ANIMAL_ID = b.ANIMAL_ID
 where a.DATETIME > b.DATETIME
-order by a.DATETIME asc;
+order by a.DATETIME asc
